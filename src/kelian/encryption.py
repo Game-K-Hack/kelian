@@ -9,7 +9,7 @@ def alpha2dict(x:str) -> dict:
         for i in range(len(list(x)))
     }
 
-def list2dict(list_:list[str], alpha:str=ALPHA_HEX):
+def list2dict(list_:list[str], alpha:str=ALPHA_HEX) -> tuple[dict, dict]:
     data_alpha = {k:[] for k in alpha}
     data_list_ = {k:[] for k in list_}
 
