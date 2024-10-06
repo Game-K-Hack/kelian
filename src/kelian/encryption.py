@@ -1,4 +1,5 @@
 import random
+from .data.encryption.manga import CHARACTER_MANGA_LIST
 
 ALPHA = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789éêï~\"#'{([-|è`_\çà@)]=}°/*+<>?,.;:§!¨^¤£$€µ%ù²& \n"
 ALPHA_HEX = "0123456789abcdef"
@@ -68,3 +69,9 @@ def decrypt_by_list(message:str, password:str, list_:list[str], sep:str="") -> s
         data[char][0] 
         for char in message.split(sep)
     ]), password, ALPHA_HEX)
+
+def encrypt_by_character_manga(message:str, password:str) -> str:
+    return encrypt_by_list(message, password, CHARACTER_MANGA_LIST, "\n")
+
+def decrypt_by_character_manga(message:str, password:str) -> str:
+    return decrypt_by_list(message, password, CHARACTER_MANGA_LIST, "\n")
