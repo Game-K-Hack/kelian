@@ -23,7 +23,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.11",
     install_requires=[
-        "pywin32"
+        "pywin32", 
         "WMI"
     ]
 )

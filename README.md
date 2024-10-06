@@ -86,4 +86,4 @@ print(hashed_string)
 
 ## License
 
-This project is licensed under the MIT License. See the <a href="./README.md">LICENSE</a> file for more details.
+This project is licensed under the MIT License. See the <a href="./LICENSE.txt">LICENSE</a> file for more details.
