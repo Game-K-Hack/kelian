@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="kelian",
-    version="0.1.1",
+    version="0.1.2",
     author="Kelian",
     description="Bibliothèque de bouts de code utiles",
     long_description=long_description,
