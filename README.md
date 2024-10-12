@@ -51,7 +51,7 @@ print(ram_info)
 ```python
 from kelian import string2hash
 
-# Generate a hash from a string
+# Generate a sha256 hash from a string
 hashed_string = string2hash("password123")
 print(hashed_string)
 ```
@@ -82,7 +82,7 @@ print(hashed_string)
 
 ### Utility Functions
 
-- `string2hash(text)`: Converts a string to its hashed value.
+- `string2hash(text)`: Converts a string to its sha256 hashed value.
 
 ## License
 
