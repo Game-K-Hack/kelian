@@ -23,12 +23,12 @@ pip install kelian
 ```python
 from kelian import encrypt, decrypt
 
-# Encrypt a string
-encrypted_text = encrypt("Hello")
+# Encrypt a string with a password
+encrypted_text = encrypt("Hello","password")
 print(encrypted_text)
 
-# Decrypt the string
-decrypted_text = decrypt(encrypted_text)
+# Decrypt the string with the password
+decrypted_text = decrypt(encrypted_text,"password")
 print(decrypted_text)
 ```
 
