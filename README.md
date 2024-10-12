@@ -56,6 +56,8 @@ hashed_string = string2hash("password123")
 print(hashed_string)
 ```
 
+### [OTHER EXAMPLES](./EXAMPLE.md)
+
 ## Functions
 
 ### Encryption Functions
