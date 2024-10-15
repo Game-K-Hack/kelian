@@ -5,9 +5,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="kelian",
-    version="0.1.3",
+    version="0.1.4",
     author="Kelian",
-    description="Bibliothèque de bouts de code utiles",
+    description="Library of useful code snippets",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Game-K-Hack/kelian",

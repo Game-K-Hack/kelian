@@ -1,4 +1,20 @@
-# Other examples
+# Examples Encryption
+
+### Example 1: Encryption Functions
+
+```python
+from kelian import encrypt, decrypt
+
+# Encrypt a string with a password
+encrypted_text = encrypt("Hello","password")
+print(encrypted_text)
+
+# Decrypt the string with the password
+decrypted_text = decrypt(encrypted_text,"password")
+print(decrypted_text)
+```
+
+### Example 2: Personalized
 
 It is possible to retrieve information about the computer in order to encrypt and decrypt messages, depending on the machine on which the script is run.
 

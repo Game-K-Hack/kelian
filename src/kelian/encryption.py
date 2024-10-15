@@ -32,27 +32,27 @@ def list2dict(list_:list[str], alpha:str=ALPHA_HEX) -> tuple[dict, dict]:
 def encrypt(message:str, password:str, alpha:str=ALPHA) -> str:
     message = message.encode('utf-8').hex()
     dictionaire = alpha2dict(alpha)
-    Int_Message, Int_MDP, Int_Token, Str_Token = [], [], [], []
+    intmessage, intpassword, inttoken, strtoken = [], [], [], []
     while len(list(message)) > len(list(password)): password = password + password
-    for i in range(len(password)): Int_MDP.append(dictionaire[password[i]])
-    for i in range(len(message)): Int_Message.append(dictionaire[message[i]])
-    for i in range(len(message)): Int_Token.append(Int_Message[i] + Int_MDP[i])
-    for i in range(len(Int_Token)):
-        if Int_Token[i] > len(list(alpha)): Str_Token.append(str(list(dictionaire.keys())[list(dictionaire.values()).index(Int_Token[i]-len(list(alpha)))]))
-        else: Str_Token.append(str(list(dictionaire.keys())[list(dictionaire.values()).index(Int_Token[i])]))
-    return "".join(Str_Token)
+    for i in range(len(password)): intpassword.append(dictionaire[password[i]])
+    for i in range(len(message)): intmessage.append(dictionaire[message[i]])
+    for i in range(len(message)): inttoken.append(intmessage[i] + intpassword[i])
+    for i in range(len(inttoken)):
+        if inttoken[i] > len(list(alpha)): strtoken.append(str(list(dictionaire.keys())[list(dictionaire.values()).index(inttoken[i]-len(list(alpha)))]))
+        else: strtoken.append(str(list(dictionaire.keys())[list(dictionaire.values()).index(inttoken[i])]))
+    return "".join(strtoken)
 
 def decrypt(message:str, password:str, alpha:str=ALPHA) -> str:
     dictionaire = alpha2dict(alpha)
-    Int_Message, Int_MDP, Int_Token, Message = [], [], [], []
+    intmessage, intpassword, inttoken, resultmessage = [], [], [], []
     while len(list(message)) > len(list(password)): password = password + password
-    for i in range(len(password)): Int_MDP.append(dictionaire[password[i]])
-    for i in range(len(message)): Int_Token.append(dictionaire[message[i]])
-    for i in range(len(message)): Int_Message.append(Int_Token[i] - Int_MDP[i])
-    for i in range(len(Int_Message)):
-        if Int_Message[i] <= 0: Message.append(list(dictionaire.keys())[list(dictionaire.values()).index(Int_Message[i]+len(alpha))])
-        else: Message.append(list(dictionaire.keys())[list(dictionaire.values()).index(Int_Message[i])])
-    return bytes.fromhex("".join(Message)).decode()
+    for i in range(len(password)): intpassword.append(dictionaire[password[i]])
+    for i in range(len(message)): inttoken.append(dictionaire[message[i]])
+    for i in range(len(message)): intmessage.append(inttoken[i] - intpassword[i])
+    for i in range(len(intmessage)):
+        if intmessage[i] <= 0: resultmessage.append(list(dictionaire.keys())[list(dictionaire.values()).index(intmessage[i]+len(alpha))])
+        else: resultmessage.append(list(dictionaire.keys())[list(dictionaire.values()).index(intmessage[i])])
+    return bytes.fromhex("".join(resultmessage)).decode()
 
 def encrypt_by_list(message:str, password:str, list_:list[str], sep:str="") -> str:
     data, _ = list2dict(list_, ALPHA_HEX)

@@ -16,75 +16,47 @@ You can install the Kelian library via pip:
 pip install kelian
 ```
 
-## Usage
+## Examples
 
-### Example 1: Encryption Functions
-
-```python
-from kelian import encrypt, decrypt
-
-# Encrypt a string with a password
-encrypted_text = encrypt("Hello","password")
-print(encrypted_text)
-
-# Decrypt the string with the password
-decrypted_text = decrypt(encrypted_text,"password")
-print(decrypted_text)
-```
-
-### Example 2: System Information Retrieval
-
-```python
-from kelian import get_processor_details, get_ram_details
-
-# Get processor details
-processor_info = get_processor_details()
-print(processor_info)
-
-# Get RAM details
-ram_info = get_ram_details()
-print(ram_info)
-```
-
-### Example 3: Utilities
-
-```python
-from kelian import string2hash
-
-# Generate a sha256 hash from a string
-hashed_string = string2hash("password123")
-print(hashed_string)
-```
-
-### [OTHER EXAMPLES](./EXAMPLE.md)
+- [Encryption](./examples/encryption.md)
+- [Loading Bar](./examples/loading_bar.md)
+- [System](./examples/system.md)
+- [Utilities](./examples/utilities.md)
 
 ## Functions
 
-### Encryption Functions
+### Encryption
 
-- `alpha2dict()`: Maps alphabets to a dictionary for encryption.
-- `list2dict()`: Converts a list to a dictionary.
-- `encrypt(text)`: Encrypts a given text using predefined mappings.
-- `decrypt(text)`: Decrypts a given encrypted text.
-- `encrypt_by_list(text, lst)`: Encrypts text based on a custom list.
-- `decrypt_by_list(text, lst)`: Decrypts text based on a custom list.
+- `alpha2dict`: Maps alphabets to a dictionary for encryption.
+- `list2dict`: Converts a list to a dictionary.
+- `encrypt`: Encrypts a given text using predefined mappings.
+- `decrypt`: Decrypts a given encrypted text.
+- `encrypt_by_list`: Encrypts text based on a custom list.
+- `decrypt_by_list`: Decrypts text based on a custom list.
 
-### System Functions
+### Loading Bar
 
-- `get_processor_details()`: Returns details about the CPU.
-- `get_motherboard_details()`: Returns details about the motherboard.
-- `get_gpu_details()`: Returns details about the GPU.
-- `get_monitor_details()`: Returns details about the monitor.
-- `get_cd_drive_details()`: Returns details about the CD drive.
-- `get_mouse_details()`: Returns details about the mouse.
-- `get_speaker_details()`: Returns details about the speakers.
-- `get_keyboard_details()`: Returns details about the keyboard.
-- `get_hard_disk_details()`: Returns details about the hard disk.
-- `get_ram_details()`: Returns details about the RAM.
+- `ProgressBar`: Class
+    - `format`: Change pattern of progress bar
+    - `display`: Return the progress bar updated or not, depending on the given parameter
+    - `__str__` or print class: Return the progress bar updated
 
-### Utility Functions
+### System
 
-- `string2hash(text)`: Converts a string to its sha256 hashed value.
+- `get_processor_details`: Returns details about the CPU.
+- `get_motherboard_details`: Returns details about the motherboard.
+- `get_gpu_details`: Returns details about the GPU.
+- `get_monitor_details`: Returns details about the monitor.
+- `get_cd_drive_details`: Returns details about the CD drive.
+- `get_mouse_details`: Returns details about the mouse.
+- `get_speaker_details`: Returns details about the speakers.
+- `get_keyboard_details`: Returns details about the keyboard.
+- `get_hard_disk_details`: Returns details about the hard disk.
+- `get_ram_details`: Returns details about the RAM.
+
+### Utility
+
+- `string2hash`: Converts a string to its sha256 hashed value.
 
 ## License
 
