@@ -9,3 +9,12 @@ from kelian import string2hash
 hashed_string = string2hash("password123")
 print(hashed_string)
 ```
+
+### Example 2: Fix encoding
+
+```python
+from kelian import fix_encoding
+
+text = fix_encoding("PrÃƒÂ©nom")
+print(text)
+```
