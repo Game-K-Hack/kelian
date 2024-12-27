@@ -49,3 +49,33 @@ def fix_encoding(text:str) -> str:
         text = text.replace(bad, good)
     
     return text
+
+def multi_replace(texte:str, *replacements:list[tuple[str]]|list[str]) -> str:
+    """
+    Remplace plusieurs chaînes dans le texte.
+
+    Args:
+        texte: La chaîne de caractères à modifier.
+        replacements: Un ou plusieurs tuples sous la forme (ancien, nouveau) ou (ancien, nouveau, occurrences) ou (ancien1, nouveau1, ancien2, nouveau2, ...).
+
+    Returns:
+        Une nouvelle chaîne avec les remplacements appliqués.
+    """
+    result = texte
+    if isinstance(replacements[0], (list, tuple)) and len(replacements) == 1:
+        for t in range(0, len(replacements[0]), 2):
+            old, new = replacements[0][t], replacements[0][t+1]
+            result = result.replace(old, new)
+    elif isinstance(replacements[0], (list, tuple)):
+        for t in replacements:
+            old, new, occurrences = t[0], t[1], t[2] if len(t) > 2 else -1
+            result = result.replace(old, new, occurrences)
+    else:
+        assert "type not found"
+    return result
+
+def while_replace(texte:str, old:str, new:str) -> str:
+    result = texte
+    while old in result:
+        result = result.replace(old, new)
+    return result

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="kelian",
-    version="0.1.5",
+    version="0.1.6",
     author="Kelian",
     description="Library of useful code snippets",
     long_description=long_description,

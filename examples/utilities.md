@@ -18,3 +18,29 @@ from kelian import fix_encoding
 text = fix_encoding("PrÃƒÂ©nom")
 print(text)
 ```
+
+### Example 3: Multi replace
+
+```python
+from kelian import multi_replace
+
+texte = "aaabbc"
+resultat = multi_replace(texte, ("a", "1"), ("b", "2"))
+print(resultat) # Affiche "11122c"
+
+resultat = multi_replace(texte, ("a", "1", 1), ("b", "2"))
+print(resultat) # Affiche "1aa22c"
+
+resultat = multi_replace(texte, ("a", "1", "b", "2"))
+print(resultat) # Affiche "11122c"
+```
+
+### Example 4: While replace
+
+```python
+from kelian import while_replace
+
+texte = "bonjour,   ça  va       ?"
+resultat = while_replace(texte, "  ", " ")
+print(resultat) # Affiche "bonjour, ça va ?"
+```
