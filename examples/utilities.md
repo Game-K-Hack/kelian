@@ -35,7 +35,15 @@ resultat = multi_replace(texte, ("a", "1", "b", "2"))
 print(resultat) # Affiche "11122c"
 ```
 
-### Example 4: While replace
+### Example 4: Milti replace by one
+```python
+from kelian import multi_replace_by_one
+
+texte = "bonjour, ça va ?"
+print(multi_replace_by_one(txt, ("o", "a", "u"), "")) # Affiche "bnjr, ç v ?"
+```
+
+### Example 5: While replace
 
 ```python
 from kelian import while_replace

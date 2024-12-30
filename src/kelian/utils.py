@@ -74,6 +74,13 @@ def multi_replace(texte:str, *replacements:list[tuple[str]]|list[str]) -> str:
         assert "type not found"
     return result
 
+def multi_replace_by_one(texte:str, olds:tuple[str]|list[str], new:str) -> str:
+    assert isinstance(olds, (list, tuple)), "'olds' is not a list or tuple of string"
+    result = texte
+    for old in olds:
+        result = result.replace(old, new)
+    return result
+
 def while_replace(texte:str, old:str, new:str) -> str:
     result = texte
     while old in result:

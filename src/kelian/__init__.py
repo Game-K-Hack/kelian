@@ -16,10 +16,10 @@ Licence:
     MIT License (voir LICENSE pour plus de détails)
 
 Version:
-    0.1.0
+    0.1.7
 """
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 __author__ = "Kelian"
 __license__ = "MIT"
 
