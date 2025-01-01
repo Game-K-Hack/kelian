@@ -1,15 +1,33 @@
 from types import NoneType
 from average_time import AverageTime
+from typing import Any
 
 class ProgressBar():
-    def __init__(self, total:int, current:int=0, length:int=50, enabled_average_time:bool=True) -> None:
-        self.total:int   = total
+    def __init__(self, total_or_data:int|Any, current:int=0, length:int=50, enabled_average_time:bool=True, hide_average_time_when_is_over:bool=True, enabled_display_in_iterator:bool=True) -> None:
+        if isinstance(total_or_data, int):
+            self.total:int = total_or_data
+            self.data_iterator:Any = None
+        else:
+            self.total:int = len(total_or_data)+1
+            self.data_iterator:Any = iter(total_or_data)
         self.current:int = current
-        self.length:int  = length
+        self.length:int = length
         self.pattern:tuple[str, str, str, str, bool, str, bool] = ("[", "=", ".", "]", True, " | ", True)
         self.enabled_average_time = enabled_average_time
         if enabled_average_time:
             self.average_time = AverageTime()
+        self.hide_average_time_when_is_over:bool = hide_average_time_when_is_over
+        self.enabled_display_in_iterator:bool = enabled_display_in_iterator
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        try:
+            print(self.__str__(), end="\r")
+            return next(self.data_iterator)
+        except StopIteration:
+            raise StopIteration
 
     def format(self, start_side:str=None, full:str=None, empty:str=None, end_side:str=None, percent:bool=None, separator:str=None, average_time:bool=None) -> None:
         assert isinstance(start_side, (str, NoneType)), "'start_side' is not of type string"
@@ -41,7 +59,8 @@ class ProgressBar():
 
         full_bar_value = (self.length*self.current) // self.total
 
-        result = self.pattern[0]
+        result = "\x1b[2K" # clear the current line
+        result += self.pattern[0]
         result += self.pattern[1] * full_bar_value
         result += self.pattern[2] * (self.length - full_bar_value)
         result += self.pattern[3]
@@ -51,9 +70,14 @@ class ProgressBar():
             result += " " + " "*(5-len(str(percent_value))) + str(percent_value) + "%"
 
         if self.enabled_average_time and self.pattern[6]: # if average_time
-            result += self.pattern[5]
-            avg = self.average_time.get_average(self.average_time.DEFAULT_ID)
-            result += "" if str(avg).startswith("E: ") else str((self.total - self.current)*avg)
+            if self.current == self.total:
+                if not self.hide_average_time_when_is_over:
+                    result += self.pattern[5]
+                    result += "0:00:00.0"
+            else:
+                result += self.pattern[5]
+                avg = self.average_time.get_average(self.average_time.DEFAULT_ID)
+                result += "" if str(avg).startswith("E: ") else str((self.total - self.current)*avg)
 
         return result
 
