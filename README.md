@@ -12,12 +12,26 @@ pip install kelian
 
 ## Examples
 
+- [Average Time](./examples/average_time.md)
 - [Encryption](./examples/encryption.md)
 - [Loading Bar](./examples/loading_bar.md)
 - [System](./examples/system.md)
 - [Utilities](./examples/utilities.md)
 
 ## Functions
+
+### Time Tracking
+
+Utility to measure and average time intervals for various operations.
+
+- `AverageTime`: Class
+    - `start`: Starts a timer for a specific ID.
+    - `loop`: Records both start and end times for a specific ID.
+    - `stop`: Stops a timer for a specific ID.
+    - `get_average`: Retrieves the average elapsed time for a specific ID or all IDs.
+    - `__str__`, `__repr__`: Returns the average elapsed time(s) as a formatted string.
+
+*([see examples of use](./examples/average_time.md))*
 
 ### Encryption
 
@@ -30,12 +44,17 @@ Simple functions to encrypt and decrypt data using predefined mappings or lists.
 - `encrypt_by_list`: Encrypts text based on a custom list.
 - `decrypt_by_list`: Decrypts text based on a custom list.
 
+*([see examples of use](./examples/encryption.md))*
+
 ### Loading Bar
 
 - `ProgressBar`: Class
-    - `format`: Change pattern of progress bar
-    - `display`: Return the progress bar updated or not, depending on the given parameter
-    - `__str__` or print class: Return the progress bar updated
+    - `format`: Change pattern of progress bar.
+    - `update`: Increment the progress by one.
+    - `display`: Return the progress bar updated or not, depending on the given parameter.
+    - `__str__`, `__repr__`: Return the progress bar updated.
+
+*([see examples of use](./examples/loading_bar.md))*
 
 ### System
 
@@ -52,11 +71,19 @@ Retrieve detailed information about your computer's hardware, including processo
 - `get_hard_disk_details`: Returns details about the hard disk.
 - `get_ram_details`: Returns details about the RAM.
 
+*([see examples of use](./examples/system.md))*
+
 ### Utility
 
 Helper functions like hashing utilities for common tasks.
 
 - `string2hash`: Converts a string to its sha256 hashed value.
+- `fix_encoding`: Corrects common encoding issues in a text.
+- `multi_replace`: Replaces multiple substrings in a text with specified values.
+- `multi_replace_by_one`: Replaces multiple substrings in a text with a single specified value.
+- `while_replace`: Replaces a substring in a text repeatedly until it no longer exists.
+
+*([see examples of use](./examples/utilities.md))*
 
 ## License
 
