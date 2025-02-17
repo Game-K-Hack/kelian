@@ -1,5 +1,5 @@
 from types import NoneType
-from average_time import AverageTime
+from .average_time import AverageTime
 from typing import Any
 
 class ProgressBar():
